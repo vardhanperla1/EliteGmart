@@ -9,15 +9,12 @@
 <%@ page import="javax.servlet.http.*" %>
 
 <%
-    // Invalidate the current session
     session.invalidate();
 
-    // Set cache control headers
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setHeader("Pragma", "no-cache");
     response.setHeader("Expires", "0");
 
-    // Redirect the user to the login page
     response.sendRedirect("login.jsp");
 %>
 
