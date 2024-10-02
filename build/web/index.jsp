@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-    // Set cache control headers
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setHeader("Pragma", "no-cache");
     response.setHeader("Expires", "0");
 
-    // Check if the user is logged in
     HttpSession userSession = request.getSession(false);
     String userEmail = (String) userSession.getAttribute("name");
     boolean isLoggedIn = (userEmail != null && !userEmail.isEmpty());
 
-    // If the user is not logged in, redirect to the login page
     if (!isLoggedIn) {
         response.sendRedirect("login.jsp");
         return;
